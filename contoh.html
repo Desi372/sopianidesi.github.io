@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>LAPORAN KEGIATAN</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('latar belakang45.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+    background-image: url('latar belakang45.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    filter: none; 
+        }
+        .container {
+            background-color: white(231, 250, 249, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            color: rgb(22, 24, 24);
+        }
+        .container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .container input[type="text"],
+        .container input[type="tel"],
+        .container input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        .container button {
+            width: 100%;
+            padding: 10px;
+            background-color: green;
+            border: none;
+            border-radius: 5px;
+            color: rgb(14, 31, 32);
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="disdukcapil-removebg-preview.png" alt="logo.html" width="130" height="130">
+        <h2>LAPORAN KEGIATAN</h2>
+        <form id="submit-form">
+            <label for="tanggal">Hari/Tanggal</label>
+            <input type="text" id="tanggal" name="tanggal" placeholder="Enter Hari/Tanggal">
+            
+            <label for="kegiatan">Kegiatan</label>
+            <input type="text" id="kegiatan" name="kegiatan" placeholder="Enter Kegiatan">
+            
+            <label for="tempat">Tempat</label>
+            <input type="text" id="tempat" name="tempat" placeholder="Enter Tempat">
+            
+            <label for="photo">Photo</label>
+            <input type="file" id="photo" name="photo">
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbz4dZNt1a6abFEkfjQ3qJeR-jUfxuseBJeHBFOYoNocr2mYCUZS6S5zz61xgBkbNfPw/exec'; // Ganti dengan URL Google Apps Script Anda
+        const form = document.getElementById('submit-form');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            const formData = new FormData(form);
+
+            fetch(scriptURL, { method: 'POST', body: formData })
+                .then(response => alert('Data berhasil disimpan!'))
+                .catch(error => alert('Error: ' + error.message));
+        });
+    </script>
+</body>
+</html>
